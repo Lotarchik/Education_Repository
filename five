@@ -1,0 +1,73 @@
+import sympy as sp
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Задача 1: Упростите выражение 2x + 3x - 5 + 7
+x = sp.symbols('x')
+expression = 2*x + 3*x - 5 + 7
+simplified_expression = sp.simplify(expression)
+print(f"Упрощенное выражение: {simplified_expression}")
+
+# Задача 2: Найдите производную функции f(x) = x^2 + 3x + 2
+function = x**2 + 3*x + 2
+derivative = sp.diff(function, x)
+print(f"Производная функции: {derivative}")
+
+# Задача 3: Решите уравнение 2x + 3 = 9
+equation = sp.Eq(2*x + 3, 9)
+solution = sp.solve(equation, x)
+print(f"Решение уравнения: {solution}")
+
+# Задача 4: Найдите неопределенный интеграл функции f(x) = 3x^2 + 2x + 1
+integral_function = 3*x**2 + 2*x + 1
+indefinite_integral = sp.integrate(integral_function, x)
+print(f"Неопределенный интеграл: {indefinite_integral}")
+
+import sympy as sp
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Задача 1: Упростите выражение 2x + 3x - 5 + 7
+x = sp.symbols('x')
+expression = 2*x + 3*x - 5 + 7
+simplified_expression = sp.simplify(expression)
+print(f"Упрощенное выражение: {simplified_expression}")
+
+# Задача 2: Найдите производную функции f(x) = x^2 + 3x + 2
+function = x**2 + 3*x + 2
+derivative = sp.diff(function, x)
+print(f"Производная функции: {derivative}")
+
+# Задача 3: Решите уравнение 2x + 3 = 9
+equation = sp.Eq(2*x + 3, 9)
+solution = sp.solve(equation, x)
+print(f"Решение уравнения: {solution}")
+
+# Задача 4: Найдите неопределенный интеграл функции f(x) = 3x^2 + 2x + 1
+integral_function = 3*x**2 + 2*x + 1
+indefinite_integral = sp.integrate(integral_function, x)
+print(f"Неопределенный интеграл: {indefinite_integral}")
+
+# Задача 5: Постройте график функции f(x) = x^2 - 4x + 3
+def f(x):
+    return x**2 - 4*x + 3
+
+# Генерация значений x для построения графика
+x_vals = np.linspace(-100, 100, 10000)  # Создаем 10000 равномерно распределенных значений x от -100 до 100
+y_vals = f(x_vals)  # Вычисляем соответствующие значения y, подставляя x в функцию f
+
+# Создание графика
+plt.figure(figsize=(8, 5))  # Создаем новое окно для графика с заданным размером
+plt.plot(x_vals, y_vals, label='f(x) = x^2 - 4x + 3')  # Строим график, указывая значения x и y, а также метку для легенды
+plt.title('График функции f(x)')  # Заголовок графика
+plt.xlabel('x')  # Подпись оси x
+plt.ylabel('f(x)')  # Подпись оси y
+
+# Ограничение значений по оси y
+plt.ylim(-1, 10000)  # Устанавливаем пределы для оси y от -1 до 10000
+
+plt.axhline(0, color='black', linewidth=0.5, ls='--')  # Добавляем горизонтальную линию на уровне y=0
+plt.axvline(0, color='black', linewidth=0.5, ls='--')  # Добавляем вертикальную линию на уровне x=0
+plt.grid(color='gray', linestyle='--', linewidth=0.5)  # Добавляем сетку на график
+plt.legend()  # Отображаем легенду
+plt.show()  # Отображаем график
