@@ -1,0 +1,13 @@
+import pandas as pd
+
+# Чтение Excel-файла
+df = pd.read_excel('Characters.xlsx')
+
+# Посмотреть первые 5 строк
+print(f'5 первых строк: {df.head()}')
+print(f'5 последних строк: {df.tail()}')
+print(f'5 случайных строк: {df.sample()}')
+print(f'5 случайных строк: {df.loc[int(input("Введите индекс строки, которая вас интересует:"))]}')
+
+# Посмотреть информацию о таблице
+# print(df.info())
