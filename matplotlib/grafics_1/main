@@ -1,0 +1,25 @@
+import matplotlib.pyplot as plt
+import pandas as pd
+
+# Шаг 1: Считываем данные из Excel
+file_path = 'Characters.xlsx'  # Путь к файлу Excel
+df = pd.read_excel(file_path)
+
+# Проверяем структуру данных
+print(df.head())  # Вывод первых строк для проверки
+
+# Шаг 2: Построение графика
+plt.figure(figsize=(8, 6))  # Размер окна графика
+
+# Используем данные из DataFrame
+plt.plot(df['Температура плавления, ℃'], df['Температура кипения, ℃'], marker='o', label='Зависимость температуры кипения от температуры плавления')
+
+# Настройка графика
+plt.title('График из Excel')
+plt.xlabel('Температура плавления')
+plt.ylabel('Температура кипения')
+plt.legend()
+plt.grid(True)  # Включить сетку
+
+# Шаг 3: Отображаем график
+plt.show()
