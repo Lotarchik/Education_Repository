@@ -1,0 +1,34 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+import math
+
+
+file_path = 'Оценки за ЕГЭ по жиму лёжа.xlsx'  # Путь к файлу Excel
+df = pd.read_excel(file_path)
+num_rows = len(df)
+summ = df['Score'].sum()
+mean_values = summ/num_rows
+print(mean_values)
+
+summ_disp = 0
+for i in df['Score']:
+    summ_disp += (i - mean_values)**2
+disp = summ_disp/num_rows
+std = math.sqrt(disp)
+print(disp, std)
+
+pred = (0.95/2)*(std/math.sqrt(num_rows))
+dov_int_down = mean_values - pred
+dov_int_up = mean_values + pred
+errors = [(mean_values - 1.96*(std/math.sqrt(num_rows))), (mean_values + 1.96*(std/math.sqrt(num_rows)))]
+# Создание столбчатой диаграммы с доверительными интервалами
+plt.figure(figsize=(8, 5))
+plt.bar(mean_values, means, yerr=errors, capsize=5, color="skyblue", edgecolor="black")
+
+# Подписи осей
+plt.xlabel("Номера учеников")
+plt.ylabel("Оценки")
+plt.title("Столбчатая диаграмма с доверительными интервалами")
+
+# Отображение графика
+plt.show()
